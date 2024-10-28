@@ -1,3 +1,4 @@
+from .contact import Contact
 class Directory:
     """
     Clase Directorio:
@@ -12,10 +13,18 @@ class Directory:
     """
 
     def __init__(self):
-        pass
+        self.contactos = [["Nombre", "Apellido", "Organización", "Teléfono", "Dirección"]]
 
-    def add_contact(self):
-        pass
+    def add_contact(self, nombre, apellido, organizacion, telefono, direccion):
+        contacto = Contact(nombre, apellido, organizacion, telefono, direccion)
+        self.contactos.append(contacto.get_data())
 
     def list_contacts(self):
-        pass
+        print("Directorio de Contactos:\n")
+        for i, fila in enumerate(self.contactos):
+            linea = "|"
+            for item in fila:
+                linea += f"{str(item):<14} | "
+            print(linea)
+            if i == 0:  
+                print("|" + "_______________|_" * len(fila))

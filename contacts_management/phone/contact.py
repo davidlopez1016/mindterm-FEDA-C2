@@ -10,8 +10,8 @@ class Contact:
 
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, nombre, apellido, organizacion, telefono, direccion):
+       self.datos = [nombre, apellido, organizacion, telefono, direccion]
     
     def get_data(self):
-        pass
+        return self.datos
